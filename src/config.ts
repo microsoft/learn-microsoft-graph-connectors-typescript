@@ -2,9 +2,9 @@ import { ExternalConnectors } from '@microsoft/microsoft-graph-types';
 
 export const config = {
   connection: {
-    id: '',
-    name: '',
-    description: '',
+    id: 'msgraphdocs',
+    name: 'Microsoft Graph documentation',
+    description: 'Documentation for Microsoft Graph API which explains what Microsoft Graph is and how to use it.',
     activitySettings: {
       // URL to item resolves track activity such as sharing external items.
       // The recorded activity is used to improve search relevance.
@@ -60,7 +60,14 @@ export const config = {
           labels: [
             'iconUrl'
           ]
-        }
+        },
+        {
+          name: 'description',
+          type: 'string',
+          isQueryable: true,
+          isSearchable: true,
+          isRetrievable: true
+        },
       ]
     }
   } as ExternalConnectors.ExternalConnection

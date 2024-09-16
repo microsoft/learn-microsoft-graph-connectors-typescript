@@ -1,4 +1,4 @@
-import { ExternalConnectors } from '@microsoft/microsoft-graph-types';
+import { ExternalAudienceScope, ExternalConnectors } from '@microsoft/microsoft-graph-types';
 import fs from 'fs';
 import { config } from './config.js';
 import { client } from './graphClient.js';
@@ -14,15 +14,19 @@ async function createConnection(): Promise<void> {
   const adaptiveCard = fs.readFileSync('./resultLayout.json', 'utf8');
   searchSettings!.searchResultTemplates![0].layout = JSON.parse(adaptiveCard);
 
+  const requestBody : ExternalConnectors.ExternalConnection = {
+    id,
+    name,
+    description,
+    activitySettings,
+    searchSettings
+  };
+
+  console.log(requestBody);
+
   await client
     .api('/external/connections')
-    .post({
-      id,
-      name,
-      description,
-      activitySettings,
-      searchSettings
-    });
+    .post(requestBody);
 
   console.log('Connection created');
 }
