@@ -17,6 +17,7 @@ interface Document {
 
 function extract(): Document[] {
   // return the documents to import
+  return [];
 }
 
 function getDocId(doc: Document): string {
@@ -24,6 +25,7 @@ function getDocId(doc: Document): string {
   // ID can't contain /
   // Generate an ID that you can resolve back to the document's URL
   // so that URL to item resolvers can properly record activity.
+  return '';
 }
 
 function transform(documents: Document[]): ExternalConnectors.ExternalItem[] {
