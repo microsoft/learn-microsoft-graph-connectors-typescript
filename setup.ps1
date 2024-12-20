@@ -11,7 +11,7 @@ Start-Sleep -Seconds 10
 
 # create AAD app
 Write-Host "Creating AAD app..."
-$appInfo=$(npx -p @pnp/cli-microsoft365 -- m365 aad app add --name "Microsoft Graph documentation" --withSecret --apisApplication "https://graph.microsoft.com/ExternalConnection.ReadWrite.OwnedBy, https://graph.microsoft.com/ExternalItem.ReadWrite.OwnedBy" --grantAdminConsent --output json)
+$appInfo=$(npx -p @pnp/cli-microsoft365 -- m365 entra app add --name "Microsoft Graph documentation" --withSecret --apisApplication "https://graph.microsoft.com/ExternalConnection.ReadWrite.OwnedBy, https://graph.microsoft.com/ExternalItem.ReadWrite.OwnedBy" --grantAdminConsent --output json)
 
 # write app to env.ts
 Write-Host "Writing app to src/env.ts..."

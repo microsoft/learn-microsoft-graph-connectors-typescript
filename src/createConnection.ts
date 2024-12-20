@@ -12,7 +12,9 @@ async function createConnection(): Promise<void> {
     (r as any)['@odata.type'] = '#microsoft.graph.externalConnectors.itemIdResolver';
   })
   const adaptiveCard = fs.readFileSync('./resultLayout.json', 'utf8');
-  searchSettings!.searchResultTemplates![0].layout = JSON.parse(adaptiveCard);
+  if (searchSettings) {
+    searchSettings.searchResultTemplates![0].layout = JSON.parse(adaptiveCard);
+  }
 
   await client
     .api('/external/connections')
