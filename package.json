@@ -25,6 +25,6 @@
   "dependencies": {
     "@azure/identity": "^4.3.0",
     "@microsoft/microsoft-graph-client": "^3.0.7",
-    "undici": "^6.19.2"
+    "undici": "^6.21.1"
   }
 }
